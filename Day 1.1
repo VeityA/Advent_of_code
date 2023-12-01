@@ -1,0 +1,21 @@
+""" 
+Advent 1:
+https://adventofcode.com/2023/day/1 
+"""
+
+import numpy as np
+
+file = open('C:/Users/Antonia/Desktop/Advent Coding/Day_1_input.txt')
+input = file.readlines()
+
+sum = 0
+for i in input:
+    numbers = [x for x in i]
+    
+    index = np.where([x.isnumeric() for x in numbers])[0]
+    index = [int(x) for x in index]
+    
+    new_sum = int([numbers[i] for i in index][0] + [numbers[i] for i in index][-1])
+    sum = sum + new_sum
+    
+print(sum)
